@@ -1,11 +1,12 @@
 "use client";
 import React from 'react';
-import Subpagina from '@/components/Subpagina';
-
+import Login from '@/components/Login';
+import HeaderExx from '@/components/header';
 const Pasarel = () => {
   return (
     <>
-      <Subpagina />
+      <HeaderExx />
+      <Login/>
     </>
   );
 };
