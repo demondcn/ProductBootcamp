@@ -4,7 +4,6 @@
 "use client";
 import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
-import { SessionProvider } from 'next-auth/react';
 import "./globals.css"
 
 const fontHeading = Inter({
@@ -19,7 +18,7 @@ const fontBody = Inter({
   variable: '--font-body',
 })
 
-export default function Layout({ children }) {
+export default function Layout() {
   return (
     <html lang="en">
       <body 
@@ -29,7 +28,6 @@ export default function Layout({ children }) {
           fontBody.variable
         )}
       >
-        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   )
