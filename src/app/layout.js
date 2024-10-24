@@ -18,7 +18,7 @@ const fontBody = Inter({
   variable: '--font-body',
 })
 
-export default function Layout() {
+export default function Layout({ children }) { 
   return (
     <html lang="en">
       <body 
@@ -28,7 +28,8 @@ export default function Layout() {
           fontBody.variable
         )}
       >
+        {children}
       </body>
     </html>
-  )
+  );
 }
