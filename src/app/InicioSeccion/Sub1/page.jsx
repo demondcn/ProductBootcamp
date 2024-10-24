@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
-import Sub1 from '../../../components/Sub2';
+import Sub2 from '@/components/Sub2';
 
 const Pasarel = () => {
   return (
-      <Sub1 />
+      <Sub2 />
   );
 };
 

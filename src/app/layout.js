@@ -4,6 +4,7 @@
 "use client";
 import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import { SessionProvider } from 'next-auth/react';
 import "./globals.css"
 
 const fontHeading = Inter({
