@@ -83,7 +83,7 @@ const Inicio = () => {
         animation: 'gradientAnimation 15s ease infinite',
       }}
     >
-      <div className="bg-[#A8D5BA] rounded-2xl shadow-2xl flex w-full max-w-4xl overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl overflow-hidden">
         <motion.div
           className="w-1/2 p-8 relative"
           initial={{ x: isLogin ? 0 : '100%' }}
