@@ -1,78 +1,74 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { useForm } from 'react-hook-form'
-import { signIn, getSession } from 'next-auth/react'
-import { motion } from 'framer-motion'
-import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react'
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import { signIn, getSession } from 'next-auth/react';
+import { motion } from 'framer-motion';
+import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
 
 const Inicio = () => {
-  const { register: registerRegister, handleSubmit: handleSubmitRegister, reset: resetRegister, formState: { errors: errorsRegister } } = useForm()
-  const { register: registerLogin, handleSubmit: handleSubmitLogin, formState: { errors: errorsLogin } } = useForm()
-  const [isLogin, setIsLogin] = useState(true)
-  const [showPassword, setShowPassword] = useState(false)
+  const { register: registerRegister, handleSubmit: handleSubmitRegister, reset: resetRegister, formState: { errors: errorsRegister } } = useForm();
+  const { register: registerLogin, handleSubmit: handleSubmitLogin, formState: { errors: errorsLogin } } = useForm();
+  const [isLogin, setIsLogin] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    const styleElement = document.createElement("style")
+    const styleElement = document.createElement("style");
     styleElement.innerHTML = `
       @keyframes gradientAnimation {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
-    `
-    document.head.appendChild(styleElement)
+    `;
+    document.head.appendChild(styleElement);
     return () => {
-      document.head.removeChild(styleElement)
-    }
-  }, [])
+      document.head.removeChild(styleElement);
+    };
+  }, []);
 
   const onSubmitRegister = async (data) => {
     try {
-      const res = await fetch('Server/api/auth/registro', {
+      const res = await fetch('/api/auth/registro', { // Asegúrate de que la ruta sea correcta
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
         }
-      })
-      if (!res.ok) throw new Error('Error en el registro')
-      resetRegister()
-      setIsLogin(true)
+      });
+      if (!res.ok) throw new Error('Error en el registro');
+      resetRegister();
+      setIsLogin(true);
     } catch (error) {
-      console.error('Error:', error)
-      alert('Hubo un error en el registro. Por favor, inténtelo de nuevo.')
+      console.error('Error:', error);
+      alert('Hubo un error en el registro. Por favor, inténtelo de nuevo.');
     }
-  }
+  };
 
   const onSubmitLogin = async (data) => {
     try {
       const res = await signIn('credentials', {
-        email: data.email,
+        email: data.name, // Ahora utilizamos 'name'
         password: data.password,
         redirect: false
-      })
+      });
 
       if (res.error) {
-        throw new Error(res.error)
+        throw new Error(res.error);
       }
 
-      const session = await getSession()
+      const session = await getSession();
       if (session && session.user) {
-        if (session.user.isAdmin) {
-          window.location.replace(`/`)
-        } else {
-          window.location.replace(`/`)
-        }
+        window.location.replace(`/`);
       } else {
-        throw new Error("No se pudo obtener la sesión del usuario.")
+        throw new Error("No se pudo obtener la sesión del usuario.");
       }
     } catch (error) {
-      console.error('Error:', error)
-      alert(error.message)
+      console.error('Error:', error);
+      alert(error.message);
     }
-  }
+  };
 
   return (
     <div
@@ -120,19 +116,15 @@ const Inicio = () => {
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                 <input
-                  type="email"
-                  placeholder="Correo"
+                  type="text" // Cambio de email a texto
+                  placeholder="Nombre" // Cambiado a 'Nombre'
                   className="w-full p-2 pl-10 rounded-xl border bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  {...(isLogin ? registerLogin : registerRegister)("email", { 
-                    required: "El correo es requerido",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Correo inválido"
-                    }
+                  {...(isLogin ? registerLogin : registerRegister)("name", { 
+                    required: "El nombre es requerido"
                   })}
                 />
-                {(isLogin ? errorsLogin.email : errorsRegister.email) && 
-                  <p className="text-red-500 text-xs mt-1">{isLogin ? errorsLogin.email.message : errorsRegister.email.message}</p>}
+                {(isLogin ? errorsLogin.name : errorsRegister.name) && 
+                  <p className="text-red-500 text-xs mt-1">{isLogin ? errorsLogin.name.message : errorsRegister.name.message}</p>}
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -159,7 +151,7 @@ const Inicio = () => {
                   <p className="text-red-500 text-xs mt-1">{isLogin ? errorsLogin.password.message : errorsRegister.password.message}</p>}
               </div>
               {isLogin && (
-                <a href="/InicioSeccion/ResetConta" className="text-sm text-gray-300 hover:text-green-500 transition duration-300">
+                <a href="#" className="text-sm text-gray-300 hover:text-green-500 transition duration-300">
                   ¿Perdiste tu contraseña?
                 </a>
               )}
@@ -193,7 +185,7 @@ const Inicio = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Inicio
+export default Inicio;
