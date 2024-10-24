@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useRouter } from 'next/navigation';
 
-export default function Ini() {
+export default function Bienvenida() {
   const router = useRouter();
   const NavegarEntreInterfaces = () => {
     router.push(`/InicioSeccion/usuario/diagnostico`);
