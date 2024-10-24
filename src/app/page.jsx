@@ -1,13 +1,11 @@
 "use client";
 import React from 'react';
 import Bienvenida from '@/components/Bienvenida';
-import headerExx from '@/components/header';
-
-
+import HeaderExx from '@/components/header';
 const Inicio = () => {
   return (
     <>
-      <headerExx />
+      <HeaderExx />
       <Bienvenida />
     </>
   );

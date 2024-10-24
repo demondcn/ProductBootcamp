@@ -1,36 +1,35 @@
-"use client";
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import { useRouter } from 'next/navigation';
-import Component from "./componente";
+import { Play } from "lucide-react"
 
 export default function Bienvenida() {
-  const router = useRouter();
-  const NavegarEntreInterfaces = () => {
-    router.push(`/InicioSeccion/Sub1`);
-  };
-
   return (
-    <div>
-      <header className="bg-white w-full shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-gray-900">Inicio</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">Quiénes Somos +</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">Maestrías En Línea</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">Campus</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">Blog</a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">Contacto</a>
-            </nav>
-            <div className="text-white flex gap-5">
-              <button className="bg-indigo-500 px-5 py-2 rounded-full">Search</button>
-              <button className="bg-indigo-500 px-5 py-2 rounded-full">Shopping</button>
-            </div>
-          </div>
-      </header>
-      <main>
-        <Component />
-      </main>
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* <div className="absolute inset-0">
+        <img
+          alt="Woman in yoga pose"
+          className="h-full w-full object-cover"
+          src="/placeholder.svg?height=1080&width=1920"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div> */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+        <p className="mb-2 text-sm font-medium uppercase tracking-wider md:text-base">
+          Escuela Europea de Terapias Naturales y Bienestar
+        </p>
+        <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+          FORMACIÓN ONLINE
+        </h1>
+        <p className="mb-8 max-w-md text-lg md:text-xl">
+          Formación online especializada en terapias naturales y bienestar
+        </p>
+        <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+          <Button className="bg-[#95c11f] text-white hover:bg-[#7da019]">Ver Cursos</Button>
+          <Button variant="outline" className="bg-[#95c11f] text-white">
+            <Play className="mr-2 h-4 w-4" />
+            Conócenos
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
