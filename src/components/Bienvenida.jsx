@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 export default function Bienvenida() {
   const router = useRouter();
   const NavegarEntreInterfaces = () => {
-    router.push(`/InicioSeccion/usuario/diagnostico`);
+    router.push(`/InicioSeccion`);
   };
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-background">
