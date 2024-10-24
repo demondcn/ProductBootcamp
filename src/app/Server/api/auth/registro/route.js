@@ -6,17 +6,19 @@ export async function POST(request) {
     try {
         const data = await request.json();
 
+        // Hasheando la contraseña
         const hashedPassword = await bcrypt.hash(data.password, 10);
 
-        // Crear el nuevo usuario
+        // Creando el nuevo usuario con la nueva estructura del modelo Prisma
         const newUser = await db.usuario.create({
             data: {
-                nombre: data.name, // Cambiado a 'nombre'
-                contrasena: hashedPassword // Cambiado a 'contrasena'
+                nombre: data.name,
+                email: data.email,
+                contrasena: hashedPassword
             }
         });
 
-        const { contrasena: _, ...user } = newUser;
+        const { contrasena, ...user } = newUser;  // Evita devolver la contraseña en la respuesta
 
         return NextResponse.json(user);
     } catch (error) {

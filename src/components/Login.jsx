@@ -30,7 +30,7 @@ const Inicio = () => {
 
   const onSubmitRegister = async (data) => {
     try {
-      const res = await fetch('/api/auth/registro', { // Asegúrate de que la ruta sea correcta
+      const res = await fetch('/api/auth/registro', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -49,7 +49,7 @@ const Inicio = () => {
   const onSubmitLogin = async (data) => {
     try {
       const res = await signIn('credentials', {
-        email: data.name, // Ahora utilizamos 'name'
+        email: data.email,
         password: data.password,
         redirect: false
       });
@@ -60,7 +60,11 @@ const Inicio = () => {
 
       const session = await getSession();
       if (session && session.user) {
-        window.location.replace(`/`);
+        if (session.user.isAdmin) {
+          window.location.replace('/');
+        } else {
+          window.location.replace('/');
+        }
       } else {
         throw new Error("No se pudo obtener la sesión del usuario.");
       }
@@ -116,15 +120,19 @@ const Inicio = () => {
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                 <input
-                  type="text" // Cambio de email a texto
-                  placeholder="Nombre" // Cambiado a 'Nombre'
+                  type="email"
+                  placeholder="Correo"
                   className="w-full p-2 pl-10 rounded-xl border bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  {...(isLogin ? registerLogin : registerRegister)("name", { 
-                    required: "El nombre es requerido"
+                  {...(isLogin ? registerLogin : registerRegister)("email", { 
+                    required: "El correo es requerido",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Correo inválido"
+                    }
                   })}
                 />
-                {(isLogin ? errorsLogin.name : errorsRegister.name) && 
-                  <p className="text-red-500 text-xs mt-1">{isLogin ? errorsLogin.name.message : errorsRegister.name.message}</p>}
+                {(isLogin ? errorsLogin.email : errorsRegister.email) && 
+                  <p className="text-red-500 text-xs mt-1">{isLogin ? errorsLogin.email.message : errorsRegister.email.message}</p>}
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
