@@ -1,10 +1,12 @@
 "use client";
 import React from 'react';
-import Bienvenida from '@/components/Ini'; // Asegúrate de que la ruta sea correcta
+import Bienvenida from '@/components/Ini';
 
 const Inicio = () => {
   return (
+    <>
       <Bienvenida />
+    </>
   );
 };
 

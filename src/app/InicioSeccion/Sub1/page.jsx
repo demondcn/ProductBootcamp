@@ -4,7 +4,9 @@ import Sub2 from '@/components/Sub2';
 
 const Pasarel = () => {
   return (
+    <>
       <Sub2 />
+    </>
   );
 };
 
