@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Bienvenida from '@/components/Ini';
+import Bienvenida from '@/components/Bienvenida';
 
 const Inicio = () => {
   return (
