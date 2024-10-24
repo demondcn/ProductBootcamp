@@ -2,33 +2,35 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useRouter } from 'next/navigation';
+import Component from "./componente";
 
 export default function Bienvenida() {
   const router = useRouter();
   const NavegarEntreInterfaces = () => {
     router.push(`/InicioSeccion/Sub1`);
   };
+
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Bienvenido a Nuestra Plataforma
-            </h1>
-            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-              Descubre un mundo de posibilidades. Nuestra plataforma te ofrece las herramientas que necesitas para alcanzar tus metas.
-            </p>
+    <div>
+      <header className="bg-white w-full shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <nav className="hidden md:flex space-x-8">
+              <a href="#" className="text-gray-700 hover:text-gray-900">Inicio</a>
+              <a href="#" className="text-gray-700 hover:text-gray-900">Quiénes Somos +</a>
+              <a href="#" className="text-gray-700 hover:text-gray-900">Maestrías En Línea</a>
+              <a href="#" className="text-gray-700 hover:text-gray-900">Campus</a>
+              <a href="#" className="text-gray-700 hover:text-gray-900">Blog</a>
+              <a href="#" className="text-gray-700 hover:text-gray-900">Contacto</a>
+            </nav>
+            <div className="text-white flex gap-5">
+              <button className="bg-indigo-500 px-5 py-2 rounded-full">Search</button>
+              <button className="bg-indigo-500 px-5 py-2 rounded-full">Shopping</button>
+            </div>
           </div>
-          <div className="space-x-4">
-            <Button onClick= {NavegarEntreInterfaces}>
-              Comenzar
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline">Saber más</Button>
-          </div>
-        </div>
-      </div>
-    </section>
+      </header>
+      <main>
+        <Component />
+      </main>
+    </div>
   )
 }
