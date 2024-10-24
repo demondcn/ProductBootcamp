@@ -1,25 +1,53 @@
-import { ShoppingCart, Search } from "lucide-react"
+import { ShoppingCart, Search } from "lucide-react";
+import Menu from "./ButtonMedia";
+import Image from "next/image";
+const LogoPage = require('@/../public/img/logo.png');
+import { useRouter } from 'next/navigation'; // Importa useRouter
 
 export default function HeaderExx() {
+  const router = useRouter(); // Inicializa el router
+
   return (
-    <header className="bg-gray-800 w-full shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    <header className="bg-yellow-600 w-full shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          {/* <img
-            src="/placeholder.svg?height=40&width=40"
+          {/* <Image
+            src="../public/img/logo.png"  // Ruta desde la carpeta public
             alt="Logo"
-            className="h-10 w-10"
+            width={40}  // Especifica el ancho
+            height={40} // Especifica el alto
           /> */}
           <span className="text-white text-sm font-semibold leading-tight">
-            KHEPRY 
+            KHEPRY
           </span>
         </div>
         <nav className="hidden md:flex space-x-6">
-          <a href="#" className="text-white hover:text-gray-300">Inicio</a>
-          <a href="#" className="text-white hover:text-gray-300">Quiénes Somos </a>
-          <a href="#" className="text-white hover:text-gray-300">Cursos</a>
-          <a href="#" className="text-white hover:text-gray-300">Campus</a>
-          <a href="#" className="text-white hover:text-gray-300">Blog</a>
+          <a
+            href="/"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('')}
+          >
+            Inicio
+          </a>
+          <a
+            href="/Apartados/QuienesSomos"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/QuienesSomos')}
+          >Quiénes Somos
+          </a>
+          <a
+            href="/Apartados/Cursos"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/Cursos')}
+          >Cursos</a>
+          <a href="/Apartados/QuienesSomos"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/QuienesSomos')}
+          >Campus</a>
+          <a href="/Apartados/QuienesSomos"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/QuienesSomos')}
+          >Blog</a>
           <a href="#" className="text-white hover:text-gray-300">Contacto</a>
         </nav>
         <div className="text-white flex items-center space-x-4">
@@ -29,8 +57,9 @@ export default function HeaderExx() {
           <button aria-label="Search">
             <Search className="h-6 w-6" />
           </button>
+          <Menu />
         </div>
       </div>
     </header>
-  )
+  );
 }

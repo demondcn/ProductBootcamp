@@ -14,16 +14,17 @@ export default function Bienvenida() {
       </div> */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
         <p className="mb-2 text-sm font-medium uppercase tracking-wider md:text-base">
-          Escuela Europea de Terapias Naturales y Bienestar
+          CENTRO DE RESTAURACION PSICOLOGIA HOLISTICA
         </p>
         <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-          FORMACIÓN ONLINE
+          KHEPRI
         </h1>
         <p className="mb-8 max-w-md text-lg md:text-xl">
-          Formación online especializada en terapias naturales y bienestar
-        </p>
+        Las terapias holísticas son un enfoque integral que considera la persona en su totalidad: cuerpo, mente y espíritu. Buscan identificar y abordar las causas subyacentes de los problemas de salud, en lugar de simplemente tratar los síntomas de manera aislada        </p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-          <Button className="bg-[#95c11f] text-white hover:bg-[#7da019]">Ver Cursos</Button>
+          <a href="/Apartados/Cursos"
+            onClick={() => router.push('/Apartados/Cursos')} 
+            className="bg-[#95c11f] text-white px-5 py-2 rounded hover:bg-[#7da019]">Ver Cursos</a>
           <Button variant="outline" className="bg-[#95c11f] text-white">
             <Play className="mr-2 h-4 w-4" />
             Conócenos
