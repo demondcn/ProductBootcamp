@@ -78,7 +78,7 @@ const Inicio = () => {
     <div
       className="min-h-screen flex items-center justify-center p-4"
       style={{
-        background: 'linear-gradient(-45deg, #FFD700 , #FFFACD)',
+        background: 'white',
         backgroundSize: '400% 400%',
         animation: 'gradientAnimation 15s ease infinite',
       }}
@@ -101,7 +101,7 @@ const Inicio = () => {
           </div>
 
           <div className="mt-24">
-            <h2 className="text-3xl font-bold text-yellow-500 mb-6">
+            <h2 className="text-3xl font-bold text-black mb-6">
               {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
             </h2>
             <form onSubmit={isLogin ? handleSubmitLogin(onSubmitLogin) : handleSubmitRegister(onSubmitRegister)} className="space-y-4">
@@ -111,7 +111,7 @@ const Inicio = () => {
                   <input
                     type="text"
                     placeholder="Nombre"
-                    className="w-full p-2 pl-10 rounded-xl border bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full p-2 pl-10 rounded-xl border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                     {...registerRegister("name", { required: "El nombre es requerido" })}
                   />
                   {errorsRegister.name && <p className="text-red-500 text-xs mt-1">{errorsRegister.name.message}</p>}
@@ -122,7 +122,7 @@ const Inicio = () => {
                 <input
                   type="email"
                   placeholder="Correo"
-                  className="w-full p-2 pl-10 rounded-xl border bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-2 pl-10 rounded-xl border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                   {...(isLogin ? registerLogin : registerRegister)("email", {
                     required: "El correo es requerido",
                     pattern: {
@@ -139,7 +139,7 @@ const Inicio = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Contraseña"
-                  className="w-full p-2 pl-10 pr-10 rounded-xl border bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-2 pl-10 pr-10 rounded-xl border bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                   {...(isLogin ? registerLogin : registerRegister)("password", {
                     required: "La contraseña es requerida",
                     minLength: {
@@ -186,7 +186,7 @@ const Inicio = () => {
 
           </p>
           <button
-            className="border-2 border-white rounded-xl px-12 py-3 inline-block font-semibold hover:bg-white hover:text-yellow-500 transition duration-300 relative z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            className="border-2 border-white rounded-xl px-12 py-3 inline-block font-semibold hover:bg-white hover:text-black transition duration-300 relative z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             onClick={() => setIsLogin(!isLogin)}
           >
             {isLogin ? 'Registrarse' : 'Iniciar sesión'}

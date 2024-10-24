@@ -8,7 +8,7 @@ export default function HeaderExx() {
   const router = useRouter(); // Inicializa el router
 
   return (
-    <header className="bg-yellow-600 w-full shadow-sm">
+    <header className="bg-black w-full shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           {/* <Image
@@ -40,15 +40,20 @@ export default function HeaderExx() {
             className="text-white hover:text-gray-300"
             onClick={() => router.push('/Apartados/Cursos')}
           >Cursos</a>
-          <a href="/Apartados/QuienesSomos"
+          <a href="/Apartados/Campus"
             className="text-white hover:text-gray-300"
-            onClick={() => router.push('/Apartados/QuienesSomos')}
+            onClick={() => router.push('/Apartados/Campus')}
           >Campus</a>
-          <a href="/Apartados/QuienesSomos"
+          <a href="/Apartados/Blog"
             className="text-white hover:text-gray-300"
-            onClick={() => router.push('/Apartados/QuienesSomos')}
+            onClick={() => router.push('/Apartados/Blog')}
           >Blog</a>
-          <a href="#" className="text-white hover:text-gray-300">Contacto</a>
+          <a href="/Apartados/Contactos"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/Blog')}>Contacto</a>
+          <a href="/Apartados/Login"
+            className="text-white hover:text-gray-300"
+            onClick={() => router.push('/Apartados/Login')}>Login</a>
         </nav>
         <div className="text-white flex items-center space-x-4">
           <button aria-label="Shopping cart">

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Play} from "lucide-react"
+import PaymentButtons from "./Mediopago"
 
 export default function Footer() {
   return (
@@ -8,13 +9,14 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <Image
-              src="/placeholder.svg?height=100&width=300"
+            {/* <Image
+              src=""
               alt="ESCUELA EUROPEA DE TERAPIAS NATURALES Y BIENESTAR"
               width={300}
               height={100}
               className="mb-6"
-            />
+            /> */}
+            <h1 className="text-white text-2xl font-semibold mb-2">KHEPRI</h1>
             <h3 className="text-green-400 font-semibold mb-2">Dirección España:</h3>
             <p>C/ Amadeu Vives, 5,</p>
             <p>Bloque 1 - Bajo C</p>
@@ -26,7 +28,7 @@ export default function Footer() {
             <p>Bologna</p>
             
             <h3 className="text-green-400 font-semibold mt-4 mb-2">Email:</h3>
-            <p>comercial@escuelaterapiasbienestar.com</p>
+            <p>ejemplo@escuelaemail.com</p>
             
             <h3 className="text-green-400 font-semibold mt-4 mb-2">Teléfono:</h3>
             <p>+34 877 055 185</p>
@@ -43,23 +45,18 @@ export default function Footer() {
           
           <div>
             <h2 className="text-2xl font-bold mb-6">Acreditaciones</h2>
-            <div className="grid grid-cols-3 gap-4">
+            {/* <div className="grid grid-cols-3 gap-4">
               <Image src="/placeholder.svg?height=50&width=50" alt="Acreditación 1" width={50} height={50} />
               <Image src="/placeholder.svg?height=50&width=50" alt="Acreditación 2" width={50} height={50} />
               <Image src="/placeholder.svg?height=50&width=50" alt="Acreditación 3" width={50} height={50} />
               <Image src="/placeholder.svg?height=50&width=50" alt="Acreditación 4" width={50} height={50} />
               <Image src="/placeholder.svg?height=50&width=50" alt="Acreditación 5" width={50} height={50} />
-            </div>
+            </div> */}
           </div>
           
           <div>
             <h2 className="text-2xl font-bold mb-6">Tipos de pago:</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <Image src="/placeholder.svg?height=30&width=50" alt="Mastercard" width={50} height={30} />
-              <Image src="/placeholder.svg?height=30&width=50" alt="Visa" width={50} height={30} />
-              <Image src="/placeholder.svg?height=30&width=50" alt="Aplazame" width={50} height={30} />
-              <Image src="/placeholder.svg?height=30&width=50" alt="PayPal" width={50} height={30} />
-            </div>
+            <PaymentButtons />
           </div>
         </div>
       </div>

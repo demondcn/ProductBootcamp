@@ -1,17 +1,19 @@
 "use client";
 import React from 'react';
-import Blog from '@/components/Blog';
 import HeaderExx from '@/components/header';
+import ComponentCourses from './component';
+import ComponentItems from './items';
 import Footer from '@/components/Footer';
-const Pasarel = () => {
+
+const Pasarel1 = () => {
   return (
     <>
       <HeaderExx />
-      <Blog/>
+      <ComponentCourses />
+      <ComponentItems />
       <Footer />
     </>
   );
 };
 
-export default Pasarel;
-
+export default Pasarel1;
