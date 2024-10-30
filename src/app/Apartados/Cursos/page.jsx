@@ -1,16 +1,14 @@
 "use client";
 import React from 'react';
 import HeaderExx from '@/components/header';
-import ComponentCourses from './component';
-import ComponentItems from './items';
+import CombinedComponent from './component';
 import Footer from '@/components/Footer';
 
 const Pasarel1 = () => {
   return (
     <>
       <HeaderExx />
-      <ComponentCourses />
-      <ComponentItems />
+        <CombinedComponent />
       <Footer />
     </>
   );

@@ -4,7 +4,7 @@ import Link from "next/link"
 const blogPosts = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/image1.jpg", // Reemplaza con la ruta de tu imagen JPG
     date: "11",
     month: "octubre",
     category: "PSICOLOGÍA",
@@ -12,7 +12,7 @@ const blogPosts = [
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/image2.jpg", // Reemplaza con la ruta de tu imagen JPG
     date: "20",
     month: "septiembre",
     category: "PSICOLOGÍA",
@@ -20,21 +20,20 @@ const blogPosts = [
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/image3.jpg", // Reemplaza con la ruta de tu imagen JPG
     date: "06",
     month: "septiembre",
     category: "PSICOLOGÍA",
     title: "Técnicas para mejorar la autorregulación emocional"
-  },
-  // Add more blog posts as needed
-]
+  }
+];
 
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="relative h-64 md:h-96">
         <Image
-          src="/placeholder.svg?height=400&width=1200"
+          src="/header-image.jpg" // Reemplaza con la ruta de la imagen JPG para el encabezado
           alt="Man using laptop"
           layout="fill"
           objectFit="cover"
