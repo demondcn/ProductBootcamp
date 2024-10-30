@@ -40,10 +40,6 @@ export default function HeaderExx() {
             className="text-white hover:text-gray-300"
             onClick={() => router.push('/Apartados/Cursos')}
           >Cursos</a>
-          <a href="/Apartados/Campus"
-            className="text-white hover:text-gray-300"
-            onClick={() => router.push('/Apartados/Campus')}
-          >Campus</a>
           <a href="/Apartados/Blog"
             className="text-white hover:text-gray-300"
             onClick={() => router.push('/Apartados/Blog')}
